@@ -15,6 +15,7 @@ function onWhichHemisphere () {
 		fallEquinox = `22 September ${presentYear}`;
 		summerSolstice = `21 June ${presentYear}`;
 		winterSolstice = `21 December ${presentYear}`;
+		document.getElementById('count-container').style.display = 'none';
 	}
 
 	if (southCheckBox.checked) {
@@ -23,6 +24,7 @@ function onWhichHemisphere () {
 		fallEquinox = `21 March ${presentYear}`;
 		summerSolstice = `21 December ${presentYear}`;
 		winterSolstice = `21 June ${presentYear}`;
+		document.getElementById('count-container').style.display = 'none';
 	}
 }
 
@@ -78,15 +80,38 @@ function formatTime (time) {
 	return time < 10 ? `0${time}` : time;
 }
 
-// TESTING
+var intervalA;
 
-function countdowns () {
+function summerCountdown () {
+	clearInterval(intervalA);
+	document.getElementById('count-container').style.display = 'block';
 	countdown(summerSolstice);
-	countdown(winterSolstice);
-	countdown(springEquinox);
-	countdown(fallEquinox);
+	intervalA = setInterval(function () {
+		countdown(summerSolstice);
+	}, 1000);
 }
 
-window.onload = countdowns();
-
-setInterval(countdowns, 1000);
+function fallCountdown () {
+	clearInterval(intervalA);
+	document.getElementById('count-container').style.display = 'block';
+	countdown(fallEquinox);
+	intervalA = setInterval(function () {
+		countdown(fallEquinox);
+	}, 1000);
+}
+function springCountdown () {
+	clearInterval(intervalA);
+	document.getElementById('count-container').style.display = 'block';
+	countdown(springEquinox);
+	intervalA = setInterval(function () {
+		countdown(springEquinox);
+	}, 1000);
+}
+function winterCountdown () {
+	clearInterval(intervalA);
+	document.getElementById('count-container').style.display = 'block';
+	countdown(winterSolstice);
+	intervalA = setInterval(function () {
+		countdown(winterSolstice);
+	}, 1000);
+}
