@@ -4,13 +4,14 @@ var summerSolstice = '';
 var winterSolstice = '';
 const present = new Date();
 const presentYear = present.getFullYear();
+const buttons = document.getElementsByTagName('BUTTON');
+const targetDate = document.getElementById('target');
 
 // CODING THE FUNCTIONS FOR THE CHECKBOXS
 function onWhichHemisphere () {
 	var northCheckBox = document.getElementById('north');
 	var southCheckBox = document.getElementById('south');
 	if (northCheckBox.checked) {
-		console.log('estamos en el nh mi bro');
 		springEquinox = `21 March ${presentYear}`;
 		fallEquinox = `22 September ${presentYear}`;
 		summerSolstice = `21 June ${presentYear}`;
@@ -19,7 +20,6 @@ function onWhichHemisphere () {
 	}
 
 	if (southCheckBox.checked) {
-		console.log('estamos en el sh mi bro');
 		springEquinox = `21 September ${presentYear}`;
 		fallEquinox = `21 March ${presentYear}`;
 		summerSolstice = `21 December ${presentYear}`;
@@ -34,6 +34,7 @@ var indexImg = 1;
 showImage(indexImg);
 function season_chosen (num) {
 	showImage((indexImg = num));
+	document.getElementById('count-container').style.display = 'flex';
 }
 
 function showImage (num) {
@@ -60,7 +61,6 @@ function countdown (season) {
 
 	if (seasonDate - currentDate < 0) {
 		seasonDate.setFullYear(presentYear + 1);
-		console.log('here mi bro');
 	}
 
 	const totalSeconds = Math.floor(seasonDate - currentDate) / 1000;

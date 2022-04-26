@@ -9,28 +9,28 @@
     <title>Countdown To</title>
     <script src="script.js"></script>
 </head>
-<body>
+<body onload="onWhichHemisphere()">
     <header>
         <nav></nav>
     </header>
     <main>
         <h1 class="main-title">Seasons Countdown</h1>
         <section class="section-hemisphere">
-        <h3 class="choice-title">Select a hemisphere</h3> 
-        <div class="checkboxes">
-            <input type="radio" name="hemisphere" id="north" onclick="onWhichHemisphere();clearInterval(intervalA)">
-            <label for="north">North</label>
-            <input type="radio" name="hemisphere" id="south" onclick="onWhichHemisphere();clearInterval(intervalA)">
-            <label for="south">South</label>
-        </div>
+            <h3 class="choice-title">Select a hemisphere: </h3> 
+            <div class="checkboxes">                
+                <input type="radio" name="hemisphere" id="north" onclick="onWhichHemisphere();clearInterval(intervalA)" checked>
+                <label class="label" for="north">North</label>
+                <input type="radio" name="hemisphere" id="south" onclick="onWhichHemisphere();clearInterval(intervalA)">
+                <label class="label" for="south">South</label>
+            </div>
         </section>
         <section class="section-seasons">
-            <h3 class="choice-title">Select a Season</h3>
+            <h3 class="choice-title">Select a Season:</h3>
             <div class="btn-selector">
-                <button onclick="season_chosen(1);summerCountdown()" class="btn btn-summer">Summer</button>
-                <button onclick="season_chosen(2);fallCountdown()" class="btn fall-btn">Fall</button>
-                <button onclick="season_chosen(3);winterCountdown()" class="btn winter-btn">Winter</button>
-                <button onclick="season_chosen(4);springCountdown()" class="btn spring-btn">Spring</button>
+                <button onclick="season_chosen(1);summerCountdown()" class="btn btn-summer" > Summer </button>
+                <button onclick="season_chosen(2);fallCountdown()" class="btn fall-btn" > Fall </button>
+                <button onclick="season_chosen(3);winterCountdown()" class="btn winter-btn" > Winter </button>
+                <button onclick="season_chosen(4);springCountdown()" class="btn spring-btn" > Spring </button>
             </div>
         </section>
         <section class="img-content">
@@ -40,24 +40,26 @@
                 <img src="./images/fall.jpg">
                 <img src="./images/winter.jpg">
                 <img src="./images/spring.jpg">
-            </div>
+            </div>            
         </section>
-        <section id="count-container" class="countdown-container">
-            <div class="countdown-el days-c">
-                <p class="big-text" id="days"></p>
-                <span>Days</span>
-            </div>
-            <div class="countdown-el hours-c">
-                <p class="big-text" id="hours"></p>
-                <span>Hours</span>
-            </div>
-            <div class="countdown-el mins-c">
-                <p class="big-text" id="mins"></p>
-                <span>Minutes</span>
-            </div>
-            <div class="countdown-el secs-c">
-                <p class="big-text" id="secs"></p>
-                <span>Seconds</span>
+        <section id="count-container" class="countdown-container" >
+            <div class="container">
+                <div class="countdown-el days-c">
+                    <p class="big-text" id="days"></p>
+                    <span>Days</span>
+                </div>
+                <div class="countdown-el hours-c">
+                    <p class="big-text" id="hours"></p>
+                    <span>Hours</span>
+                </div>
+                <div class="countdown-el mins-c">
+                    <p class="big-text" id="mins"></p>
+                    <span>Minutes</span>
+                </div>
+                <div class="countdown-el secs-c">
+                    <p class="big-text" id="secs"></p>
+                    <span>Seconds</span>
+                </div>
             </div>
         </section>
     </main>
